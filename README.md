@@ -1,2 +1,2 @@
 # EDUARIOT
-Experience education like never before with AR and IoT
+Experience education like never before with AR, IoT and ChatBot
