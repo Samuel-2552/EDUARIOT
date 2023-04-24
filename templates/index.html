@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="chat-window">
+    <div class="messages">
+      <ul id="chat-log">
+        <li class="log-message">Welcome to the chatbot!</li>
+      </ul>
+    </div>
+    <div class="input">
+      <form id="message-form">
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button type="submit" id="send-btn">Send</button>
+      </form>
+    </div>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Submit user input when the form is submitted
+      $('#message-form').submit(function(event) {
+        event.preventDefault();
+        var userInput = $('#user-input').val();
+        $('#chat-log').append('<li class="user-message">' + userInput + '</li>');
+        $('#user-input').val('');
+        $.ajax({
+          url: '/chat',
+          data: {text: userInput},
+          type: 'POST',
+          dataType: 'json',
+          success: function(response) {
+            var botResponse = response.text;
+            $('#chat-log').append('<li class="bot-message">' + botResponse + '</li>');
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+  });
+});
+</script>
+</body>
+</html>
