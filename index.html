@@ -1,91 +1,53 @@
-<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-<script>
-  window.onload = function() {
-    AFRAME.registerComponent("videohandler", {
-      init: function() {
-        var marker = this.el;
-
-        this.vid = document.querySelector("#vid");
-
-        marker.addEventListener(
-          "markerFound",
-          function() {
-            this.vid.play();
-          }.bind(this)
-        );
-
-        marker.addEventListener(
-          "markerLost",
-          function() {
-            this.vid.pause();
-            this.vid.currentTime = 0;
-          }.bind(this)
-        );
-      }
-    });
-  };
-</script>
-
-<style>
-  .arjs-loader {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .arjs-loader div {
-    text-align: center;
-    font-size: 1.25em;
-    color: white;
-  }
-</style>
-
-<body style="margin : 0px; overflow: hidden;">
-  <div class="arjs-loader">
-    <div>Loading, please wait...</div>
-  </div>
-  <a-scene
-    vr-mode-ui="enabled: false;"
-    renderer="antialias: true; alpha: true; precision: mediump;"
-    embedded
-    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-  >
-    <a-assets>
-      <video
-        src="https://cdn.glitch.com/3e641d0e-e339-4228-98f6-3d3a0aa90b70%2FSampleVideo.mp4?v=1591441438404"
-        preload="auto"
-        id="vid"
-        response-type="arraybuffer"
-        loop
-        crossorigin
-        webkit-playsinline
-        autoplay
-        muted
-        playsinline
-      ></video>
-    </a-assets>
-
-    <a-nft
-      videohandler
-      type="nft"
-      url="pinball.jpg"
-      smooth="true"
-      smoothount="10"
-      smoothtolerance="0.01"
-      smooththreshold="5"
-    >
-      <a-video src="#vid" rotation="-90 0 0" position="50 150 -100" width="300" height="175">
-      </a-video>
-    </a-nft>
-    <a-entity camera></a-entity>
-  </a-scene>
-</body>
+<!DOCTYPE html>
+<html>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script> 
+  <body>
+    <a-scene embedded arjs>
+      <a-marker type='pattern' url='pattern-173941091_835664203961409_5789995235306138562_n (1).patt'>
+        <a-image src="blue.png"
+          position= "0 1 0"
+          scale= "1 1 1"
+          rotation="0 2 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
+        />
+      </a-marker>
+      <a-marker type='pattern' url='pattern-174125789_594070895323093_37739543886445794_n.patt'>
+        <a-image src="klipartz.com.png"
+          position= "0 1 0"
+          scale= "1.5 1.5 1.5"
+          rotation="3 3 3" animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
+        />
+      </a-marker>
+      <a-marker type='pattern' url='yellowboots.patt'>
+        <a-image src="duck.png"
+          position= "0 1 0"
+          scale= "1 1 1"
+          rotation="3 3 3 " animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
+        />
+      </a-marker>
+      <a-marker type='pattern' url='pattern-174280781_2056937117782010_3230409652489401640_n.patt'>
+        <a-image src="greendino.png"
+          position= "0 1 0"
+          scale= "1 1 1"
+          rotation="3 3 3" animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
+        />
+      </a-marker>
+      <a-marker type='pattern' url='pattern-174368396_460947292023688_6554398429483939075_n.patt'>
+        <a-image src="krab.png"
+          position= "0 1 0"
+          scale= "1 1 1"
+          rotation="2 2 2" animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
+        />
+      </a-marker>
+      <a-marker type='pattern' url='pattern-174324655_3838406072920098_6987965916776405029_n.patt'>
+        <a-image src="butterfly.png"
+          position= "0 1 0"
+          scale= "1 1 1"
+          rotation="3 3 3" animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
+        />
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
