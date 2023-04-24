@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no">
-<title>Home</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ar.js/2.1.1/aframe-ar.min.js" integrity="sha512-nAwVtZxAhVDCqw7hx/hHoOOrTfNQ+l4dnw5HvRrzeDE8SB3cW6ztoCUQmpeSCiL0ZGO9OfNMghJubNAQTx2Jzw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
-<body styles="margin:0; overflow:hidden"> 
+	<head>
+		<meta charset="utf-8">
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+		</style>
+        <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
 
-
-
-<script type="text/javascript" src="script.js"></script>
-</body>
+        <script type="importmap">
+          {
+            "imports": {
+              "three": "https://unpkg.com/three@0.151.3/build/three.module.js",
+              "three/addons/": "https://unpkg.com/three@0.151.3/examples/jsm/"
+            }
+          }
+        </script>
+	</head>
+	<body>
+		<script type="module" src="/main.js"></script>
+	</body>
 </html>
